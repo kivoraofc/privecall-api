@@ -30,10 +30,11 @@ def chamar_automation(secret):
     if data.get("success") and data.get("chatUrl"):
         return redirect(data["chatUrl"])
     else:
-        return jsonify({"error": "Resposta inesperada do servidor", "data": data}), 400
+        return jsonify(data)
 
 
 # ==================== CONFIG SERVIDOR ====================
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)))
+
