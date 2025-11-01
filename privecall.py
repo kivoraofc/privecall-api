@@ -4,34 +4,29 @@ import requests, os, json
 app = Flask(__name__)
 
 # ====================================================
-# NOVAS ROTAS
+# ROTAS - ISABELA
 # ====================================================
 
-# 🟣 Modelo 1
-@app.route("/modelo1", methods=["GET"])
-def modelo1():
+# 🟣 ISABELA - Verificação
+@app.route("/isabela/CALL1", methods=["GET"])
+def isabela_verificacao():
     secret = "336xth"
     url = f"https://privecall.com/api/automation/{secret}"
     try:
         res = requests.post(url)
         data = res.json()
-
-        # Garante que o conteúdo é JSON mesmo se vier como string
         if isinstance(data, str):
             data = json.loads(data)
-
-        # Redireciona se o retorno for válido
         if data.get("success") and "chatUrl" in data:
             return redirect(data["chatUrl"])
-
         return jsonify(data)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 
-# 🟣 Modelo 2
-@app.route("/modelo2", methods=["GET"])
-def modelo2():
+# 🟣 ISABELA - Brinquedo 1
+@app.route("/isabela/CALL2", methods=["GET"])
+def isabela_brinquedo1():
     secret = "8fdq29"
     url = f"https://privecall.com/api/automation/{secret}"
     try:
@@ -46,9 +41,9 @@ def modelo2():
         return jsonify({"error": str(e)}), 500
 
 
-# 🟣 Modelo 3
-@app.route("/modelo3", methods=["GET"])
-def modelo3():
+# 🟣 ISABELA - Brinquedo 2
+@app.route("/isabela/CALL3", methods=["GET"])
+def isabela_brinquedo2():
     secret = "fix5hn"
     url = f"https://privecall.com/api/automation/{secret}"
     try:
