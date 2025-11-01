@@ -44,7 +44,7 @@ def isabela_brinquedo1():
 # 🟣 ISABELA - Brinquedo 2
 @app.route("/isabela/CALL3", methods=["GET"])
 def isabela_brinquedo2():
-    secret = "fix5hn"
+    secret = "htn4eg"
     url = f"https://privecall.com/api/automation/{secret}"
     try:
         res = requests.post(url)
@@ -63,3 +63,4 @@ def isabela_brinquedo2():
 # ====================================================
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)))
+
