@@ -131,6 +131,61 @@ def lorena_call4():
 
 
 # ====================================================
+# ROTAS - BIA
+# ====================================================
+
+# 🟣 BIA - CALL 1
+@app.route("/bia/CALL1", methods=["GET"])
+def bia_call1():
+    secret = "xi7kpd"
+    url = f"https://privecall.com/api/automation/{secret}"
+    try:
+        res = requests.post(url)
+        data = res.json()
+        if isinstance(data, str):
+            data = json.loads(data)
+        if data.get("success") and "chatUrl" in data:
+            return redirect(data["chatUrl"])
+        return jsonify(data)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+# 🟣 BIA - CALL 2
+@app.route("/bia/CALL2", methods=["GET"])
+def bia_call2():
+    secret = "qc280b"
+    url = f"https://privecall.com/api/automation/{secret}"
+    try:
+        res = requests.post(url)
+        data = res.json()
+        if isinstance(data, str):
+            data = json.loads(data)
+        if data.get("success") and "chatUrl" in data:
+            return redirect(data["chatUrl"])
+        return jsonify(data)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+# 🟣 BIA - CALL 3
+@app.route("/bia/CALL3", methods=["GET"])
+def bia_call3():
+    secret = "nulxmu"
+    url = f"https://privecall.com/api/automation/{secret}"
+    try:
+        res = requests.post(url)
+        data = res.json()
+        if isinstance(data, str):
+            data = json.loads(data)
+        if data.get("success") and "chatUrl" in data:
+            return redirect(data["chatUrl"])
+        return jsonify(data)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+# ====================================================
 # SERVIDOR
 # ====================================================
 if __name__ == "__main__":
